@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FFPicker</string>
+    <string name="choose_file">选择文件</string>
+    <string name="select">请选择</string>
+    <string name="choose_folder">选择文件夹</string>
+</resources>
