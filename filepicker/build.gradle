@@ -28,9 +28,9 @@ android {
 }
 
 publish {
-    userOrg = 'silver'
-    groupId = 'cn.silver'
-    artifactId = 'FFPicker'
+    userOrg = 'czw299'
+    groupId = 'com.silver'
+    artifactId = 'ffpicker'
     publishVersion = '1.0.0'
     desc = 'An Android FilePicker'
     website = 'https://github.com/czw299/FFPicker'
