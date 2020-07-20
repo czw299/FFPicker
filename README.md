@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.zhihu.android:matisse:$latest_version'
+    implementation 'com.silver:ffpicker:1.0.0'
 }
 ```
 
