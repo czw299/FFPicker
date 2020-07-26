@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.silver.filepicker.bean.ParamBean
-import com.silver.filepicker.ui.FilePickerActivity
+import com.silver.filepicker.ui.FFPickerActivity
 
-class FilePicker{
+class FFPicker{
     companion object{
         val CHOOSE_FILE = 0
         val CHOOSE_FOLDER = 1
@@ -22,42 +22,42 @@ class FilePicker{
     private lateinit var mStartPath: String
     private var chooseMode: Int = 0
 
-    fun withActivity(activity: Activity): FilePicker {
+    fun withActivity(activity: Activity): FFPicker {
         this.mActivity = activity
         return this
     }
 
-    fun withFragment(fragment: Fragment): FilePicker {
+    fun withFragment(fragment: Fragment): FFPicker {
         this.mFragment = fragment
         return this
     }
 
-    fun withTheme(theme: Int): FilePicker {
+    fun withTheme(theme: Int): FFPicker {
         this.mTheme = theme
         return this
     }
 
-    fun withRequestCode(requsetCode: Int): FilePicker {
+    fun withRequestCode(requsetCode: Int): FFPicker {
         this.mRequestCode = requsetCode
         return this
     }
 
-    fun withMaxNum(num: Int): FilePicker {
+    fun withMaxNum(num: Int): FFPicker {
         this.mMaxNum = num
         return this
     }
 
-    fun withStartPath(startPath: String): FilePicker{
+    fun withStartPath(startPath: String): FFPicker{
         this.mStartPath = startPath
         return this
     }
 
-    fun withFileType(type: Array<String?>): FilePicker{
+    fun withFileType(type: Array<String?>): FFPicker{
         this.mStringType = type
         return this
     }
 
-    fun withChooseFolderMode(i: Int): FilePicker{
+    fun withChooseFolderMode(i: Int): FFPicker{
         this.chooseMode = i
         return this
     }
@@ -78,9 +78,9 @@ class FilePicker{
     private fun initIntent(): Intent? {
         lateinit var intent: Intent
         if (mActivity != null) {
-            intent = Intent(mActivity, FilePickerActivity::class.java)
+            intent = Intent(mActivity, FFPickerActivity::class.java)
         } else if (mFragment != null) {
-            intent = Intent(mFragment?.activity, FilePickerActivity::class.java)
+            intent = Intent(mFragment?.activity, FFPickerActivity::class.java)
         }
         return intent
     }

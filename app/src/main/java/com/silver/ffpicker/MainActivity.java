@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.silver.filepicker.FilePicker;
+import com.silver.filepicker.FFPicker;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FilePicker()
+                new FFPicker()
                         .withActivity(MainActivity.this)
                         .withRequestCode(123)
                         .start();
@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FilePicker()
+                new FFPicker()
                         .withActivity(MainActivity.this)
                         .withRequestCode(123)
-                        .withChooseFolderMode(FilePicker.Companion.getCHOOSE_FOLDER())
+                        .withChooseFolderMode(FFPicker.Companion.getCHOOSE_FOLDER())
                         .start();
             }
         });

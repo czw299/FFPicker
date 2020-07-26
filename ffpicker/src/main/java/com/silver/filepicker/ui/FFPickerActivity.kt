@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.silver.filepicker.FilePicker.Companion.CHOOSE_FOLDER
+import com.silver.filepicker.FFPicker.Companion.CHOOSE_FOLDER
 import com.silver.filepicker.R
 import com.silver.filepicker.adapter.FileRecycleViewAdapter
 import com.silver.filepicker.bean.ParamBean
@@ -23,7 +23,7 @@ import com.silver.filepicker.utils.NotificationBarSetter
 import java.io.File
 import java.lang.reflect.Field
 
-class FilePickerActivity: AppCompatActivity() {
+class FFPickerActivity: AppCompatActivity() {
     var toolbar: Toolbar? = null
     val context = this
     var adapter: FileRecycleViewAdapter? = null

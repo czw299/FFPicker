@@ -16,10 +16,10 @@ dependencies {
 ```
 
 ```java
-new FilePicker()
+new FFPicker()
 		.withActivity(MainActivity.this)
 		.withRequestCode(123)
-		.withChooseFolderMode(FilePicker.Companion.getCHOOSE_FOLDER())
+		.withChooseFolderMode(FFPicker.Companion.getCHOOSE_FOLDER())
 		.start();
 ```
 
