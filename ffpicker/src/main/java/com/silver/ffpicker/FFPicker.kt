@@ -32,17 +32,17 @@ class FFPicker{
         return this
     }
 
-    fun withTheme(theme: Int): FFPicker {
+    /*fun withTheme(theme: Int): FFPicker {
         this.mTheme = theme
         return this
-    }
+    }*/
 
     fun withRequestCode(requsetCode: Int): FFPicker {
         this.mRequestCode = requsetCode
         return this
     }
 
-    fun withMaxNum(num: Int): FFPicker {
+    /*fun withMaxNum(num: Int): FFPicker {
         this.mMaxNum = num
         return this
     }
@@ -50,7 +50,7 @@ class FFPicker{
     fun withStartPath(startPath: String): FFPicker{
         this.mStartPath = startPath
         return this
-    }
+    }*/
 
     fun withFileType(type: Array<String?>): FFPicker{
         this.mStringType = type
@@ -63,7 +63,7 @@ class FFPicker{
     }
 
     fun start(){
-        val paramBean: ParamBean = ParamBean()
+        val paramBean = ParamBean()
         paramBean.maxNum = mMaxNum
         paramBean.chooseMode = chooseMode
         paramBean.stringType = mStringType
