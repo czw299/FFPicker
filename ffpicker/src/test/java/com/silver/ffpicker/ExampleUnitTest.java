@@ -1,4 +1,4 @@
-package com.silver.filepicker;
+package com.silver.ffpicker;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.silver.filepicker.bean
+package com.silver.ffpicker.bean
 
 import android.os.Parcel
 import android.os.Parcelable

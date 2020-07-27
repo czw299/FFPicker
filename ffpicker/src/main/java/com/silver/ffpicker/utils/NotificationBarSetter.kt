@@ -1,4 +1,4 @@
-package com.silver.filepicker.utils
+package com.silver.ffpicker.utils
 
 import android.app.Activity
 import android.graphics.Color

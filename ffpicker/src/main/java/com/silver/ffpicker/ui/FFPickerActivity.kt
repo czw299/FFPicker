@@ -1,4 +1,4 @@
-package com.silver.filepicker.ui
+package com.silver.ffpicker.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -13,13 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.silver.filepicker.FFPicker.Companion.CHOOSE_FOLDER
-import com.silver.filepicker.R
-import com.silver.filepicker.adapter.FileRecycleViewAdapter
-import com.silver.filepicker.bean.ParamBean
-import com.silver.filepicker.filter.MyFileFilter
-import com.silver.filepicker.utils.FileUtils
-import com.silver.filepicker.utils.NotificationBarSetter
+import com.silver.ffpicker.FFPicker.Companion.CHOOSE_FOLDER
+import com.silver.ffpicker.R
+import com.silver.ffpicker.adapter.FileRecycleViewAdapter
+import com.silver.ffpicker.bean.ParamBean
+import com.silver.ffpicker.filter.MyFileFilter
+import com.silver.ffpicker.utils.FileUtils
+import com.silver.ffpicker.utils.NotificationBarSetter
 import java.io.File
 import java.lang.reflect.Field
 

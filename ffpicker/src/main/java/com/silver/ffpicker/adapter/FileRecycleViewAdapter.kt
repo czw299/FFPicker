@@ -1,4 +1,4 @@
-package com.silver.filepicker.adapter
+package com.silver.ffpicker.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.silver.filepicker.FFPicker
-import com.silver.filepicker.R
+import com.silver.ffpicker.FFPicker
+import com.silver.ffpicker.R
 import java.io.File
 
 class FileRecycleViewAdapter(var context: Context, var chooseMode: Int, var mMaxNum: Int, var fileType: Array<String?>): RecyclerView.Adapter<FileRecycleViewAdapter.MyHolder>(),View.OnClickListener{

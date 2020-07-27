@@ -1,10 +1,10 @@
-package com.silver.filepicker
+package com.silver.ffpicker
 
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
-import com.silver.filepicker.bean.ParamBean
-import com.silver.filepicker.ui.FFPickerActivity
+import com.silver.ffpicker.bean.ParamBean
+import com.silver.ffpicker.ui.FFPickerActivity
 
 class FFPicker{
     companion object{

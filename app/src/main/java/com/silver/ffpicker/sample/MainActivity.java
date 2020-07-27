@@ -1,4 +1,4 @@
-package com.silver.ffpicker;
+package com.silver.ffpicker.sample;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.silver.filepicker.FFPicker;
+import com.silver.ffpicker.R;
+import com.silver.ffpicker.FFPicker;
 
 import java.util.List;
 

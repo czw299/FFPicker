@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.silver.filepicker">
+    package="com.silver.ffpicker">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application>
-        <activity android:name=".ui.FFPickerActivity" android:theme="@style/FilePickerTheme"/>
+        <activity android:name="com.silver.ffpicker.ui.FFPickerActivity" android:theme="@style/FilePickerTheme"/>
     </application>
 </manifest>

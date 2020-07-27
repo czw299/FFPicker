@@ -1,6 +1,5 @@
-package com.silver.filepicker.utils
+package com.silver.ffpicker.utils
 
-import com.silver.filepicker.filter.MyFileFilter
 import java.io.File
 import java.io.FileFilter
 import java.util.*

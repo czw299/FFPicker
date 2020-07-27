@@ -1,4 +1,4 @@
-package com.silver.filepicker.filter
+package com.silver.ffpicker.filter
 
 import java.io.File
 import java.io.FileFilter

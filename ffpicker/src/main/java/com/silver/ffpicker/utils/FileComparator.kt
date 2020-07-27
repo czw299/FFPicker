@@ -1,4 +1,4 @@
-package com.silver.filepicker.utils
+package com.silver.ffpicker.utils
 
 import java.io.File
 import java.util.Comparator as javaComparator
