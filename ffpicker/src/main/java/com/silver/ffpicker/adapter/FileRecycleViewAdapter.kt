@@ -24,7 +24,7 @@ class FileRecycleViewAdapter(var context: Context, var chooseMode: Int, var mMax
     }
 
     override fun getItemCount(): Int {
-        return mData.size ?: 0
+        return mData.size
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
