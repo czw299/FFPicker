@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.silver:ffpicker:1.0.0'
+    implementation 'com.silver:ffpicker:1.0.3'
 }
 ```
 
