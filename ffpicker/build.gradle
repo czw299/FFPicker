@@ -11,7 +11,6 @@ android {
         versionCode 1
         versionName "1.0.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -31,7 +30,7 @@ publish {
     userOrg = 'czw299'
     groupId = 'com.silver'
     artifactId = 'ffpicker'
-    publishVersion = '1.0.2'
+    publishVersion = '1.0.3'
     desc = 'An Android FilePicker'
     website = 'https://github.com/czw299/FFPicker'
 }
