@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.silver.ffpicker.FFPicker.Companion.CHOOSE_FOLDER
 import com.silver.ffpicker.R
 import com.silver.ffpicker.adapter.FileRecycleViewAdapter
@@ -20,20 +19,19 @@ import com.silver.ffpicker.bean.ParamBean
 import com.silver.ffpicker.filter.MyFileFilter
 import com.silver.ffpicker.utils.FileUtils
 import com.silver.ffpicker.utils.NotificationBarSetter
+import kotlinx.android.synthetic.main.filepicker_activity.*
 import java.io.File
 import java.lang.reflect.Field
 
 class FFPickerActivity: AppCompatActivity() {
-    var toolbar: Toolbar? = null
-    val context = this
-    var adapter: FileRecycleViewAdapter? = null
-    val rootPath = Environment.getExternalStorageDirectory().absolutePath
-    var fileFolder: File = File(rootPath)//当前目录
-    var mDataList: ArrayList<File>? = null//当前列表
-    var recyclerView: RecyclerView? = null
-    var paramBean: ParamBean? = null
-    var lastOffset: ArrayList<Int> = ArrayList()
-    var lastPosition: ArrayList<Int> = ArrayList()
+    private val context = this
+    private var adapter: FileRecycleViewAdapter? = null
+    private val rootPath: String = Environment.getExternalStorageDirectory().absolutePath
+    private var fileFolder: File = File(rootPath)//当前目录
+    private var mDataList: ArrayList<File>? = null//当前列表
+    private var paramBean: ParamBean? = null
+    private var lastOffset: ArrayList<Int> = ArrayList()
+    private var lastPosition: ArrayList<Int> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,16 +40,15 @@ class FFPickerActivity: AppCompatActivity() {
         initData()
     }
 
-    fun initView(){
+    private fun initView(){
         NotificationBarSetter.setNotificationBarDarkFont(this,true,true)
-        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar?.setNavigationOnClickListener{_ -> finish()}
         try {
             val field: Field = Toolbar::class.java.getDeclaredField("mTitleTextView")
-            field.setAccessible(true)
+            field.isAccessible = true
             (field.get(toolbar) as TextView).ellipsize = TextUtils.TruncateAt.START
         } catch (e: NoSuchFieldException) {
             e.printStackTrace()
@@ -61,16 +58,13 @@ class FFPickerActivity: AppCompatActivity() {
     }
 
     private fun initData(){
-        val intent = intent
-        paramBean = intent.getParcelableExtra<ParamBean>("ddd")
-
-        recyclerView = findViewById(R.id.rcv_filelist)
+        paramBean = intent.getParcelableExtra("ddd")
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        recyclerView?.layoutManager = linearLayoutManager
+        rcv_filelist.layoutManager = linearLayoutManager
 
         adapter = FileRecycleViewAdapter(context, paramBean!!.chooseMode, paramBean!!.maxNum, paramBean!!.stringType)
-        recyclerView?.adapter = adapter
+        rcv_filelist.adapter = adapter
         mDataList = FileUtils.getFileList(fileFolder.absolutePath, MyFileFilter(paramBean!!.stringType))
         if(mDataList != null){
             adapter?.add(mDataList!!)
@@ -98,9 +92,8 @@ class FFPickerActivity: AppCompatActivity() {
 
     fun checkInFolder(file: File){
         if(file.isDirectory){
-            if(recyclerView!!.layoutManager != null) {//记录位置
-                val layoutManager = recyclerView!!.layoutManager
-                //获取可视的第一个view
+            if(rcv_filelist.layoutManager != null) {//记录位置
+                val layoutManager = rcv_filelist.layoutManager
                 //获取可视的第一个view
                 val topView = layoutManager?.getChildAt(0)
                 if (topView != null) {
@@ -115,24 +108,24 @@ class FFPickerActivity: AppCompatActivity() {
             mDataList = FileUtils.getFileList(file.absolutePath, MyFileFilter(paramBean!!.stringType))
             adapter?.clear()
             adapter!!.add(mDataList!!)
-            recyclerView?.scrollToPosition(0)
+            rcv_filelist.scrollToPosition(0)
             setToolBarTitle(file.absolutePath)
         }
     }
 
-    fun checkBack(){
+    private fun checkBack(){
         if(fileFolder.absolutePath == rootPath){
             finish()
         }else{
             mDataList = FileUtils.getFileList(fileFolder.parentFile.absolutePath, MyFileFilter(paramBean!!.stringType))
             adapter?.clear()
             adapter!!.add(mDataList!!)
-            recyclerView?.scrollToPosition(0)
+            rcv_filelist.scrollToPosition(0)
             fileFolder = fileFolder.parentFile
             setToolBarTitle(fileFolder.absolutePath)
 
-            if (recyclerView?.layoutManager != null && lastPosition.size >= 0) {
-                (recyclerView?.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(lastPosition.last(), lastOffset.last())
+            if (rcv_filelist.layoutManager != null && lastPosition.size >= 0) {
+                (rcv_filelist.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(lastPosition.last(), lastOffset.last())
                 lastPosition.remove(lastPosition.last())
                 lastOffset.remove(lastOffset.last())
             }
@@ -142,10 +135,6 @@ class FFPickerActivity: AppCompatActivity() {
 
     private fun setToolBarTitle(text: String){
         supportActionBar?.title = text
-    }
-
-    fun setSingleModeUI(){
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -160,28 +149,15 @@ class FFPickerActivity: AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item!!.itemId.equals(R.id.finish)){
-            if(paramBean!!.chooseMode == CHOOSE_FOLDER){//目录模式
-                var stringPath = ArrayList<String>()
+        if(item!!.itemId == R.id.finish){
+            if(paramBean!!.chooseMode == CHOOSE_FOLDER) {
+                val stringPath = ArrayList<String>()
                 stringPath.add(fileFolder.absolutePath)
-                val intent= Intent()
-                intent.putExtra("paths",stringPath)
-                setResult(Activity.RESULT_OK,intent)
+                val intent = Intent()
+                intent.putExtra("paths", stringPath)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
-            }else{                                      //文件模式
-                val checkList = adapter?.getCheckList()
-                var stringPath = ArrayList<String>()
-                if (checkList != null) {
-                    for(f in checkList){
-                        stringPath.add(f.absolutePath)
-                    }
-                    val intent= Intent()
-                    intent.putExtra("paths",stringPath)
-                    setResult(Activity.RESULT_OK,intent)
-                    finish()
-                }
             }
-
         }
         return true
     }
