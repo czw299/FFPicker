@@ -6,7 +6,7 @@
     <color name="colorAccent">#3F51B5</color>
     <color name="colorAccentPressed">#313E88</color>
 
-    <color name="activityBg">#FFFFFF</color>
-    <color name="toolBarTitleColor">#232323</color>
-    <color name="fileListTextColor">#393939</color>
+    <color name="activityBg">#252525</color>
+    <color name="toolBarTitleColor">#E6E6E6</color>
+    <color name="fileListTextColor">#CDCDCD</color>
 </resources>

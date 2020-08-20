@@ -6,4 +6,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="toolBarHeight">?android:attr/actionBarSize</item>
     </style>
+    
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+
+    </style>
 </resources>

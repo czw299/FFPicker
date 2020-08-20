@@ -1,6 +1,6 @@
 # FFPicker
 ## 简介
-FFPicker是一款简易的Android文件选择器，支持文件和文件夹两种模式。
+FFPicker是一款简易的Android文件选择器，支持文件和文件夹两种模式，并且适配了深色模式。
 您可以通过以下方法来启用它：
 
 ## 使用方法
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.silver:ffpicker:1.0.3'
+    implementation 'com.silver:ffpicker:1.0.4'
 }
 ```
 

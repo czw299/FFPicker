@@ -6,7 +6,7 @@ import java.util.*
 
 class FileUtils {
     companion object{
-        fun getFileList(path: String?, filter: FileFilter?): ArrayList<File>? {
+        fun getFileList(path: String?, filter: FileFilter?): ArrayList<File> {
             val directory = File(path)
             val files = directory.listFiles(filter)
             val result: ArrayList<File> = ArrayList()
